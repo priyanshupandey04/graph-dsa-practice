@@ -1,3 +1,4 @@
+
 import java.util.*;
 
 public class CycleDetectionDFS {
@@ -23,8 +24,7 @@ public class CycleDetectionDFS {
         }
         for (int i = 0; i < nodes; i++) {
             if (!visited[i]) {
-                if (dfs(visited, adj, i, -1))
-                    return true;
+                if (dfs(visited, adj, i, -1)) return true;
             }
         }
         return false;
@@ -35,8 +35,7 @@ public class CycleDetectionDFS {
         ArrayList<Integer> neighbours = adj.get(node);
         for (Integer v : neighbours) {
             if (!visited[v]) {
-                if (dfs(visited, adj, v, node))
-                    return true;
+                if (dfs(visited, adj, v, node)) return true;
             } else if (v != parent) {
                 return true;
             }

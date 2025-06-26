@@ -19,15 +19,17 @@ public class NumberOfDistinctIsland2 {
                 }
             }
         }
+
         return islands.size();
     }
 
     static private void dfs(int i, int j,int startI, int startJ, int[][] grid, boolean[][] visited, HashSet<ArrayList<Integer>> islands, ArrayList<Integer> island) {
-        if(i < 0 || i >= grid.length || j < 0 || j >= grid[0].length || grid[i][j] == 0 || visited[i][j])
-            return;
+        if(i < 0 || i >= grid.length || j < 0 || j >= grid[0].length || grid[i][j] == 0 || visited[i][j]) return;
+
         visited[i][j] = true;
         island.add(i - startI);
         island.add(j - startJ);
+        
         int[][] dirs = { { 0, 1 }, { 1, 0 }, { 0, -1 }, { -1, 0 } };
         for (int[] dir : dirs) {
             int x = i + dir[0], y = j + dir[1];
